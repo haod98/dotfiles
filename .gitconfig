@@ -3,3 +3,5 @@
 	email = 74541600+haod98@users.noreply.github.com
 [credential]
 	helper = store
+[alias]
+	ga = add

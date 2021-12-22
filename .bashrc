@@ -131,3 +131,12 @@ export PATH=$PATH:~/.bin
 # Change to headphones
 alias headphones='pacmd set-default-sink alsa_output.usb-SteelSeries_SteelSeries_GameDAC_000000000000-00.iec958-stereo'
 alias box='pacmd set-default-sink alsa_output.pci-0000_23_00.1.hdmi-stereo-extra1'
+
+# Open folder 
+alias open='xdg-open'
+
+# git commands
+alias ga='git add'
+alias gc='git commit -m'
+alias gam='git add && git commit -m'
+alias gs="git status"
