@@ -130,3 +130,4 @@ EXPORT=vim
 
 # Sail laravel
 alias sail='[ -f sail ] && bash sail || bash vendor/bin/sail'
+alias sa='[ -f sail ] && bash sail artisan || bash vendor/bin/sail artisan'
