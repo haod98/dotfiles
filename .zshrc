@@ -116,3 +116,9 @@ export PATH="/opt/homebrew/opt/node@16/bin:$PATH"
 # Find node 
 export LDFLAGS="-L/opt/homebrew/opt/node@16/lib"
 export CPPFLAGS="-I/opt/homebrew/opt/node@16/include"
+
+# Laravel Sail
+alias sail='[ -f sail ] && bash sail || bash vendor/bin/sail'
+
+# cd to icloud folder
+alias icloud='~/Library/Mobile\ Documents/com~apple~CloudDocs/'
