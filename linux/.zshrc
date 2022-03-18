@@ -114,5 +114,20 @@ export NVM_DIR="$HOME/.nvm"
 
 # Alias for git
 alias gs="git status"
-alias ga="git add ."
+alias ga="git add"
 alias gc="git commit -m"
+alias gl="git log --all --oneline --graph --decorate"
+
+# Alias to open current path
+alias open="xdg-open"
+
+# Alias for nordvpn
+alias nordc="nordvpn connect"
+alias nordd="nordvpn disconnect"
+
+# Default Editor
+EXPORT=vim
+
+# Sail laravel
+alias sail='[ -f sail ] && bash sail || bash vendor/bin/sail'
+alias sa='[ -f sail ] && bash sail artisan || bash vendor/bin/sail artisan'
