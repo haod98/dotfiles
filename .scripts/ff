@@ -1,0 +1,68 @@
+#!/bin/bash
+
+
+CMD="$1"
+ARGS=("${@:2}")
+
+#Check for args
+if [ -z "$1" ]
+then
+	echo "No arguments provided"
+fi
+
+#move and cd
+function mvcd(){
+  FILE_TO_MOVE=${ARGS[0]}
+  DESTINATION=${ARGS[1]}
+
+  mv $FILE_TO_MOVE $DESTINATION && cd $DESTINATION
+}
+
+#open folder from terminal
+function open(){
+  FOLDER_LOCATION=${ARGS[0]}
+
+  xdg-open $FOLDER_LOCATION
+}
+
+case $CMD in 
+  
+  ################
+  # Git commands #
+  ################
+
+  #Git status
+  "gs") git status ;;
+
+  #Git add
+  "ga") git add ;;
+  "gaA") git add . ;;
+
+  #Git commit
+  "gc") git commit -m "${ARGS[0]}" ;;
+  "gcA") git add -am "${ARGS[0]}" ;;
+  
+  #Git log
+  "gl") git log --all --oneline --graph --decorate ;;
+
+  ####################
+  # NordVPN commands #
+  ####################
+
+  #Connect to NordVPN
+  "nordc") nordvpn connect ;;
+
+  #Disconnect to NordVPN
+  "nordd") nordvpn disconnect ;;
+
+  #################
+  # Misc commands #
+  #################
+
+  #Move and change directory
+	"mvcd") mvcd ;;
+
+  #Open folder from terminal
+  "open") open ;;
+esac
+
