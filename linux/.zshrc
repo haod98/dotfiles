@@ -121,3 +121,4 @@ alias sa='[ -f sail ] && bash sail artisan || bash vendor/bin/sail artisan'
 
 #Add script to path
 export PATH="$HOME/.scripts:$PATH"
+EDITOR=vim

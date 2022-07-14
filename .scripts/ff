@@ -3,6 +3,7 @@
 
 CMD="$1"
 ARGS=("${@:2}")
+ARGS_COUNT=${#ARGS[@]}
 
 #Check for args
 if [ -z "$1" ]
@@ -18,11 +19,25 @@ function mvcd(){
   mv $FILE_TO_MOVE $DESTINATION && cd $DESTINATION
 }
 
-#open folder from terminal
+#open folder from terminal in Ubunutu 
 function open(){
   FOLDER_LOCATION=${ARGS[0]}
+  if [ $ARGS_COUNT -eq 1 ] 
+  then
+    echo "Open folder $FOLDER_LOCATION"
+    xdg-open $FOLDER_LOCATION
+  else 
+    echo 'Too many arguments provided. open [PATH_TO_FOLDER]'
+  fi
+}
 
-  xdg-open $FOLDER_LOCATION
+function help(){
+  FLAG=${ARGS[1]}
+  echo "Avaible commands"
+  echo
+  echo "git commands. To see more write: git --help"
+  echo "NordVPN commands. To see more wirte: nord --help"
+  echo "misc commands. To see more write: misc --help"
 }
 
 case $CMD in 
@@ -35,15 +50,18 @@ case $CMD in
   "gs") git status ;;
 
   #Git add
+  "gaa") git add -A ;;
   "ga") git add ;;
-  "gaA") git add . ;;
 
   #Git commit
-  "gc") git commit -m "${ARGS[0]}" ;;
-  "gcA") git add -am "${ARGS[0]}" ;;
+  "gca") git add -am ${ARGS[0]} ;;
+  "gc") git commit -m ${ARGS[0]} ;;
   
   #Git log
   "gl") git log --all --oneline --graph --decorate ;;
+
+  #Git push
+  "gp") git push ;;
 
   ####################
   # NordVPN commands #
@@ -64,5 +82,7 @@ case $CMD in
 
   #Open folder from terminal
   "open") open ;;
+
+  "help") help ;;
 esac
 
