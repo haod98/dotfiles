@@ -1,0 +1,93 @@
+#!/bin/bash
+
+
+CMD="$1"
+ARGS=("${@:2}")
+ARGS_COUNT=${#ARGS[@]}
+
+#Check for args
+if [ -z "$1" ]
+then
+	echo "No arguments provided"
+fi
+
+#move and cd (Does not work)
+#function mvcd(){
+#  FILE_TO_MOVE=${ARGS[0]}
+#  DESTINATION=${ARGS[1]}
+#
+#  mv $FILE_TO_MOVE $DESTINATION && cd $DESTINATION
+#}
+
+#open folder from terminal in Ubunutu 
+function open(){
+  FOLDER_LOCATION=${ARGS[0]}
+  if [ $ARGS_COUNT -eq 1 ] 
+  then
+    echo "Open folder $FOLDER_LOCATION"
+    xdg-open $FOLDER_LOCATION
+  else 
+    echo 'Too many arguments provided. open [PATH_TO_FOLDER]'
+  fi
+}
+
+function help(){
+  FLAG=${ARGS[1]}
+  echo "Avaible commands"
+  echo
+  echo "git commands. To see more write: git --help"
+  echo "NordVPN commands. To see more wirte: nord --help"
+  echo "misc commands. To see more write: misc --help"
+}
+
+case $CMD in 
+  
+  ################
+  # Git commands #
+  ################
+
+  #Git status
+  "gs") git status ;;
+
+  #Git add
+  "gaa") git add -A ;;
+  "ga") git add ;;
+
+  #Git commit
+  "gca") git commit -am "${ARGS[0]}" ;;
+  "gc") git commit -m "${ARGS[0]}" ;;
+
+  #Git branch
+  "gb") git checkout "${ARGS[0]}" ;;
+  "gbs") git branch ;;
+  "gcb") git checkout -b "${ARGS[0]}" ;;
+  
+  #Git log
+  "gl") git log --all --oneline --graph --decorate ;;
+
+  #Git push
+  "gp") git push ;;
+
+  ####################
+  # NordVPN commands #
+  ####################
+
+  #Connect to NordVPN
+  "nordc") nordvpn connect ;;
+
+  #Disconnect to NordVPN
+  "nordd") nordvpn disconnect ;;
+
+  #################
+  # Misc commands #
+  #################
+
+  #Move and change directory
+	"mvcd") mvcd ;;
+
+  #Open folder from terminal
+  "open") open ;;
+
+  "help") help ;;
+esac
+
