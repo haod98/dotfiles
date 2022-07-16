@@ -117,9 +117,10 @@ alias gs="git status"
 alias ga="git add"
 alias gc="git commit -m"
 alias gl="git log --all --oneline --graph --decorate"
+alias gnb="git checkout -b"
 
 # Alias to open current path
-alias open="xdg-open"
+# alias open="xdg-open"
 
 # Alias for nordvpn
 alias nordc="nordvpn connect"
@@ -131,3 +132,16 @@ EXPORT=vim
 # Sail laravel
 alias sail='[ -f sail ] && bash sail || bash vendor/bin/sail'
 alias sa='[ -f sail ] && bash sail artisan || bash vendor/bin/sail artisan'
+export PATH="/opt/homebrew/opt/node@16/bin:$PATH"
+
+# Find node 
+export LDFLAGS="-L/opt/homebrew/opt/node@16/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/node@16/include"
+
+# Alias for python
+alias python="python3"
+alias pip="pip3"
+
+export PATH="'"$(brew --prefix)"'/opt/pytho@3.9/libexec/bin:$PATH"
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
