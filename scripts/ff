@@ -68,6 +68,48 @@ case $CMD in
   #Git push
   "gp") git push ;;
 
+
+  #################
+  # Brew commands #
+  #################
+
+#Search brew
+"bs") brew search "${ARGS[0]}" ;;
+
+#Install formulae
+"bi") brew install "${ARGS[0]}" ;;
+
+#Install casks
+"bic") brew cask install "${ARGS[0]}" ;;
+
+#Show info 
+"bi") brew info "${ARGS[0]}" ;;
+
+#Show installed formulae
+"bl") brew list ;;
+
+#Show installed casks
+"blc") brew cask list ;;
+
+#Uninstall
+"buinstall" ) brew uninstall "${ARGS[0]}" ;;
+
+#Uninstall casks
+"bucinstall" ) brew cask uninstall "${ARGS[0]}" ;;
+
+#Fetch latest version of homebrew und formula
+"bu") brew update ;;
+
+#Show formulae with an updated version avaiable
+"bo") brew outdated ;;
+
+#Upgrade all outdated and unpinned brews
+"bU") brew upgrade ;;
+
+#Remove older versions of installed formulae
+"bclean") brew cleanup ;;
+
+
   ####################
   # NordVPN commands #
   ####################
