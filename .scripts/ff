@@ -54,13 +54,13 @@ case $CMD in
   "ga") git add ;;
 
   #Git commit
-  "gca") git commit -am ${ARGS[0]} ;;
-  "gc") git commit -m ${ARGS[0]} ;;
+  "gca") git commit -am "${ARGS[0]}" ;;
+  "gc") git commit -m "${ARGS[0]}" ;;
 
   #Git branch
-  "gb") git checkout ${ARGS[0]} ;;
+  "gb") git checkout "${ARGS[0]}" ;;
   "gbs") git branch ;;
-  "gcb") git checkout -b ${ARGS[0]} ;;
+  "gcb") git checkout -b "${ARGS[0]}" ;;
   
   #Git log
   "gl") git log --all --oneline --graph --decorate ;;
