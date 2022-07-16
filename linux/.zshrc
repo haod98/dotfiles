@@ -112,30 +112,12 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-<<<<<<< HEAD
-# Alias for git
-alias gs="git status"
-alias ga="git add"
-alias gc="git commit -m"
-alias gl="git log --all --oneline --graph --decorate"
-alias gnb="git checkout -b"
-
-# Alias to open current path
-# alias open="xdg-open"
-
-# Alias for nordvpn
-alias nordc="nordvpn connect"
-alias nordd="nordvpn disconnect"
-
-=======
->>>>>>> 65801d13ec37f053ab95e4bfc1e90bc6e3566a03
 # Default Editor
 EXPORT=vim
 
 # Sail laravel
 alias sail='[ -f sail ] && bash sail || bash vendor/bin/sail'
 alias sa='[ -f sail ] && bash sail artisan || bash vendor/bin/sail artisan'
-<<<<<<< HEAD
 export PATH="/opt/homebrew/opt/node@16/bin:$PATH"
 
 # Find node 
@@ -149,9 +131,7 @@ alias pip="pip3"
 export PATH="'"$(brew --prefix)"'/opt/pytho@3.9/libexec/bin:$PATH"
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-=======
 
 #Add script to path
-export PATH="$HOME/.scripts:$PATH"
+export PATH="$HOME/scripts:$PATH"
 EDITOR=vim
->>>>>>> 65801d13ec37f053ab95e4bfc1e90bc6e3566a03
