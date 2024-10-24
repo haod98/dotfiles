@@ -107,15 +107,26 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias ll="ls -la"
+alias vim="nvim"
+alias audit="/opt/src/audit"
+alias auditerr='docker logs -f audit-audit-1 2>&1 | grep -i "ERROR"'
+alias auditlog='docker logs -f --tail=100 audit-audit-1 2>&1'
+alias auditbash=' docker exec -it audit-audit-1 /bin/bash'
+alias dockerstopall='docker stop $(docker ps -a -q)'
 
 # Add Brew to zsh path
 export PATH=/opt/homebrew/bin:$PATH
+export LC_ALL=en_US.UTF-8
+export LC_CTYPE=en_US.UTF-8
 
 export NVM_DIR="$HOME/.nvm"
   [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
   [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 source /Users/hao/github/zsh-plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /Users/hao/github/zsh-plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# Autofill with ctrl L
+bindkey '^L'      autosuggest-accept
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
